@@ -8,8 +8,7 @@ ___
 
 # Get started
 
-* Prepare virtual environment
-
+Prepare virtual environment
 
     $ virtualenv venv 
 
@@ -17,12 +16,10 @@ ___
 
     $ pip install -r requirements.txt
 
-* Run application
+Run application
 
-    
     $ python manage.py migrate 
 
     $ python manage.py runserver
 
-
-* Checkout http://127.0.0.1:8000/docs/
+Checkout http://127.0.0.1:8000/docs/
