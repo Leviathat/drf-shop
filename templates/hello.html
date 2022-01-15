@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+      function getCookie(name) {
+        let cookieValue = null;
+    
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+    
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+    
+                    break;
+                }
+            }
+        }
+    
+        return cookieValue;
+      }
+      const csrftoken = getCookie('csrftoken');
+
+    </script>
+</head>
+<body>
+hello
+<button id="delete"> Delete</button>
+
+<!--  DELETE PRODUCT  -->
+<script type="text/javascript">
+
+    function delete_product() {
+      fetch('/api/product/3/', {
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken,
+          },
+      })
+    }
+
+</script>
+
+<!--  GET LIST  -->
+<script type="text/javascript">
+    function get_products() {
+      fetch('/api/product', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken,
+          },
+      })
+      .then(response => response.json())
+      .then(data => {
+      });
+    }
+
+</script>
+
+<script type="text/javascript">
+    window.onload = get_products()
+    removebtn = document.getElementById('delete')
+    removebtn.addEventListener('click', function(){
+      delete_product()
+    })
+
+</script>
+
+</body>
+</html>

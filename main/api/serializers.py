@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from main.models import Product
+from main.models import Product, Cart
 
 
 class ProductSerializer(ModelSerializer):
@@ -8,5 +8,9 @@ class ProductSerializer(ModelSerializer):
         model = Product
         fields = '__all__'
 
-    def create(self, validated_data):
-        image = validated_data.pop('image')
+
+class MainCartSerializer(ModelSerializer):
+
+    class Meta:
+        model = Cart
+        fields = ('cart_items', )

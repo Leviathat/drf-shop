@@ -1,12 +1,14 @@
 from rest_framework.viewsets import ModelViewSet
-from main.models import Product
-from main.api.serializers import ProductSerializer
+from main.models import Product, Cart
+from main.api.serializers import ProductSerializer, MainCartSerializer
 
 
-class PostViewSet(ModelViewSet):
+class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-
+class CartViewSet(ModelViewSet):
+    queryset = Cart.objects.all()
+    serializer_class = MainCartSerializer
 

@@ -11,7 +11,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
     created_at = models.TimeField(auto_now_add=True)
     type = models.CharField(max_length=25, choices=settings.YEAR_IN_SCHOOL_CHOICES, default=None)
-    image = models.ImageField(verbose_name='Изображение', blank=True, upload_to="images/product/")
+    image = models.ImageField(verbose_name='Изображение', blank=True, upload_to="images/product/", null=True)
     sold = models.BooleanField(default=False)
 
     def __str__(self):
