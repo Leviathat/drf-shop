@@ -3,6 +3,7 @@ from main.views import *
 
 
 urlpatterns = [
-    path('', test, name="hello"),
+    path('', HomeView.as_view(), name="hello"),
+    path('cart', ArticleCartView.as_view(), name="my-cart"),
 ]
 
