@@ -32,7 +32,7 @@ class Cart(models.Model):
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
-    products = models.ManyToManyField(Product, null=True, blank=True, default=None)
+    products = models.ForeignKey(Product, default=None, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.customer)
