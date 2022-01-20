@@ -23,7 +23,7 @@ function render(obj) {
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="${obj.image}" width="100px" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -50,6 +50,4 @@ function render(obj) {
 		product_container.innerHTML = "Remove";
 		product_container.className = "add-to-cart btn btn-outline-danger mt-auto";
     }
-
-
 }
