@@ -20,25 +20,30 @@
 
 
 {% block content %}
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="product-list row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Состояние</th>
-                        <th scope="col">Цена</th>
-                        <th scope="col">Убрать с корзины</th>
-                    </tr>
-                    </thead>
-                    <tbody class="cart-table-body">
-                    </tbody>
-                </table>
+    <div class="container">
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="product-list row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Название</th>
+                            <th scope="col">Состояние</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Убрать с корзины</th>
+                        </tr>
+                        </thead>
+                        <tbody class="cart-table-body">
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <hr>
+
+        <button class="btn btn-outline-success" onclick="test()">click!</button>
+    </div>
 {% endblock content %}
 
 {% block any_js %}

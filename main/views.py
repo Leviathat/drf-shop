@@ -13,27 +13,17 @@ class ArticleCartView(TemplateView):
     template_name = "article.html"
 
 
-def updateItem(request):
-    data = json.loads(request.body)
-    productId = data['productId']
-    action = data['action']
-    print('Action:', action)
-    print('Product:', productId)
+class OrderView(TemplateView):
+    template_name = "make_order.html"
 
-    customer = request.user.customer
-    product = Product.objects.get(id=productId)
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+def get_cookie_cart(request):
 
-    if action == 'add':
-        orderItem.quantity = (orderItem.quantity + 1)
-    elif action == 'remove':
-        orderItem.quantity = (orderItem.quantity - 1)
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
 
-    orderItem.save()
+    if body:
+        return JsonResponse(f'{body}', safe=False)
+    return JsonResponse('Your cart is empty', safe=False)
 
-    if orderItem.quantity <= 0:
-        orderItem.delete()
 
-    return JsonResponse('Item was added', safe=False)

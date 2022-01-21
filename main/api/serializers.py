@@ -6,7 +6,7 @@ class ProductSerializer(ModelSerializer):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ('id', 'name', 'price', 'sold', 'type', 'image')
 
 
 class CartSerializer(ModelSerializer):
