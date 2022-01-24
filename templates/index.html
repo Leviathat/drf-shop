@@ -1,7 +1,7 @@
 {% extends 'base_frames/base.html' %}
 {% load static %}
 {% block title %}
-    <title>Store</title>
+    <title>Dafoe's shop</title>
 {% endblock title %}
 
 {% block head_scripts %}
@@ -19,12 +19,15 @@
 {% endblock head_scripts %}
 
 {% block content %}
-
+    <audio controls autoplay hidden loop id="willem">
+        <source src="{% static 'mp3/y2mate.com - If Playboi Cartis Cancun was on the Sega Genesis INSTRUMENTAL.mp3' %}"
+                type="audio/mpeg">
+    </audio>
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
+                <h1 class="display-4 fw-bolder">Shop in style with Goblin</h1>
                 <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
             </div>
         </div>
@@ -47,12 +50,10 @@
     <script src="{% static 'js/store.js' %}"></script>
     <script src="{% static 'js/cart.js' %}"></script>
     <script type="text/javascript">
-
         window.onload = function () {
             get_products();
-            get_cart_total()
-        }
-
+            get_cart_total();
+        };
     </script>
 
 {% endblock any_js %}

@@ -4,20 +4,21 @@
     <title>Make order</title>
 {% endblock title %}
 
+
 {% block head_scripts %}
-    <!-- Favicon-->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
-    <!-- Bootstrap icons-->
+    <!-- Bootstrap icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Core theme CSS (includes Bootstrap) -->
 
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/order.css' %}" rel="stylesheet"/>
     <script src="{% static 'js/csrf.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!--    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
 {% endblock head_scripts %}
+
 {% block content %}
     <section class="order-form my-4 mx-4">
         <div class="container">
@@ -99,7 +100,11 @@
 {% endblock content %}
 
 {% block any_js %}
-    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'js/store.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
     <script type="text/javascript">
         window.onload = function () {
             get_cart_total()
