@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 import json
@@ -13,17 +13,14 @@ class ArticleCartView(TemplateView):
     template_name = "article.html"
 
 
-class OrderView(TemplateView):
-    template_name = "make_order.html"
-
-
 def get_cookie_cart(request):
-
-    body_unicode = request.body.decode('utf-8')
-    body = json.loads(body_unicode)
-
-    if body:
-        return JsonResponse(f'{body}', safe=False)
-    return JsonResponse('Your cart is empty', safe=False)
+    print(request.POST['customer'])
+    print(request.POST['phone_number'])
+    # body_unicode = request.body.decode('utf-8')
+    # body = json.loads(body_unicode)
+    #
+    # if body:
+    #     return JsonResponse(f'{body}', safe=False)
+    return redirect('home', permanent=True)
 
 

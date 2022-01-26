@@ -15,85 +15,29 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
     <script src="{% static 'js/csrf.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link href="{% static 'css/cart_article.css' %}" rel="stylesheet"/>
     <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
 {% endblock head_scripts %}
 
 {% block content %}
+
     <section class="order-form my-4 mx-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>You can see my Order Form</h1>
-                    <span>with some explanation below</span>
-                    <hr class="mt-1">
-                </div>
-                <div class="col-12">
-                    <form action="{% url 'test' %}" method="post">
+        <div class="container form-background">
+            <div class="container text-center col-sm-12 col-lg-8">
+                <form class="form-signin" action="{% url 'test' %}" method="post">
 
-                        <div class="row mx-4">
-                            <div class="col-12 mb-2">
-                                <label class="order-form-label">Как к вам обращаться ?</label>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input class="order-form-input" placeholder="First">
-                            </div>
-                            <div class="col-12 col-sm-6 mt-2 mt-sm-0">
-                                <input class="order-form-input" placeholder="Last">
-                            </div>
-                        </div>
+                    {% csrf_token %}
 
-                        <div class="row mt-3 mx-4">
-                            <div class="col-12 mb-2">
-                                <label class="order-form-label">Адрес</label>
-                            </div>
-                            <div class="col-12">
-                                <input class="order-form-input" placeholder="Street Address">
-                            </div>
-                            <div class="col-12 mt-2">
-                                <input class="order-form-input" placeholder="Street Address Line 2">
-                            </div>
-                            <div class="col-12 col-sm-6 mt-2 pr-sm-2">
-                                <input class="order-form-input" placeholder="City">
-                            </div>
-                            <div class="col-12 col-sm-6 mt-2 pl-sm-0">
-                                <input class="order-form-input" placeholder="Region">
-                            </div>
-                            <div class="col-12 col-sm-6 mt-2 pr-sm-2">
-                                <input class="order-form-input" placeholder="Postal / Zip Code">
-                            </div>
-                            <div class="col-12 col-sm-6 mt-2 pl-sm-0">
-                                <input class="order-form-input" placeholder="Country">
-                            </div>
-                        </div>
-                        <div class="row mt-3 mx-4">
-                            <div class="col-12 mb-2">
-                                <label class="order-form-label">Контактная информация</label>
-                            </div>
-                            <div class="col-6">
-                                <input class="order-form-input" placeholder="Номер">
-                            </div>
-                        </div>
-                        <div class="row mt-3 mx-4">
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" name="validation" id="validation"
-                                           value="1">
-                                    <label for="validation" class="form-check-label">I know what I need to know</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <button type="button" id="btnSubmit" class="btn btn-dark d-block mx-auto btn-submit">
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+                    {% if form.non_field_errors %}
+                        <li>{{ form.non_field_errors }}</li>
+                    {% endif %}
+                    <h1 class="h3 mb-3 font-weight-normal">Оставьте контактную информацию</h1>
+                    <input type="text" class="form-control" placeholder="Как к вам обращаться ( ФИО )" name="customer">
+                    <hr>
+                    <input type="tel" class="form-control" placeholder="+7 777 77 77" name="phone_number">
+                    <hr>
+                    <button class="btn align-bottom btn-lg btn-dark btn-block" type="submit">Order</button>
+                </form>
             </div>
         </div>
     </section>
@@ -105,6 +49,22 @@
     <!-- Core theme JS-->
     <script src="{% static 'js/store.js' %}"></script>
     <script src="{% static 'js/cart.js' %}"></script>
+    <script type="text/javascript">
+        $("input[id='form1']").on("input", function () {
+            $("input[id='form2']").val(destroyMask(this.value));
+            this.value = createMask($("input[id='form2']").val());
+        });
+
+        function createMask(string) {
+            console.log(string);
+            return string.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+        }
+
+        function destroyMask(string) {
+            console.log(string);
+            return string.replace(/\D/g, '').substring(0, 9);
+        }
+    </script>
     <script type="text/javascript">
         window.onload = function () {
             get_cart_total()

@@ -1,12 +1,12 @@
 function render_cart(obj) {
     $('.cart-table-body').append(`
         <tr id="${obj.id}">
-        <td>${obj.name}</td>
-        <td>${obj.type}</td>
-        <td>$ ${obj.price}</td>
-        <td><button onclick="remove_from_cart(${obj.id})" class="add-to-cart btn btn-outline-dark mt-auto">Remove</button></td>
+        <td> - ${obj.name}</td>
+        <td class="text-center">${obj.type}</td>
+        <td class="text-center"><nobr>₸ ${obj.price}</nobr></td>
+        <td class="text-right"><button onclick="remove_from_cart(${obj.id})" class="add-to-cart btn btn-sm btn-outline-dark mt-auto">Убрать</button></td>
         </tr>
-    `)
+    `);
 }
 
 function test() {
@@ -40,6 +40,7 @@ function get_cart_products() {
                 render_cart(data);
             });
     }
+    cart_empty()
 }
 
 function add_to_cart(product_id) {
@@ -74,6 +75,7 @@ function remove_from_cart(product_id) {
         delete cart[product_id];
         product_container.remove();
         document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/";
+        cart_empty()
     }
     get_cart_total()
 }
@@ -82,3 +84,17 @@ function get_cart_total() {
     document.getElementById('cart-total').innerHTML = Object.keys(JSON.parse(getCookie('cart'))).length.toString();
 }
 
+function cart_empty() {
+    if (Object.keys(JSON.parse(getCookie('cart'))).length === 0) {
+        let message = document.getElementById('empty-cart');
+        let cart_detail = document.getElementById('cart_detail');
+        message.style.display = message.style.display === 'block' ? '' : 'block';
+        cart_detail.style.display = cart_detail.style.display === 'none' ? '' : 'none';
+    }
+}
+
+function order_cart() {
+    let form = document.getElementById('order-form');
+    form.style.display = form.style.display === 'block' ? '' : 'block';
+
+}
