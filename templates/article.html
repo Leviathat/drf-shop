@@ -34,40 +34,32 @@
             <div class="container px-1 px-lg-5 mt-5" id="cart_detail">
                 <div class="row gx-1 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <table class="table">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Название</th>
-                            <th scope="col" class="text-center">Тип</th>
-                            <th scope="col" class="text-center">Цена</th>
-                            <th scope="col"></th>
-                        </tr>
-                        </thead>
                         <tbody class="cart-table-body">
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
-        <div class="text-center pb-3">
-            <button id="order-cart" class="btn btn-sm btn-outline-dark">Оформить Заказ</button>
+        <div class="text-center pb-4">
+            <button id="order-cart" class="btn btn-lg btn-outline-dark">Оформить Заказ</button>
         </div>
     </div>
-    <section id="order-form" class="order-form my-4 mx-4">
+    <section id="order-form" class="order-form my-4">
         <div class="container form-background">
             <div class="container text-center col-sm-12 col-lg-8">
-                <form class="form-signin" action="{% url 'test' %}" method="post">
+                <form class="form-signin px-4 py-2" action="{% url 'test' %}" method="post">
 
                     {% csrf_token %}
 
                     {% if form.non_field_errors %}
                         <li>{{ form.non_field_errors }}</li>
                     {% endif %}
-                    <h1 class="h3 mb-3 font-weight-normal">Оставьте контактную информацию</h1>
+                    <h2 class="h3 mb-3 font-weight-normal"><b>Оставьте контактную информацию</b></h2>
                     <input type="text" class="form-control" placeholder="Как к вам обращаться ( ФИО )" name="customer">
                     <hr>
                     <input type="tel" class="form-control" placeholder="+7 777 77 77" name="phone_number">
                     <hr>
-                    <button class="btn align-bottom btn-lg btn-dark btn-block" type="submit">Order</button>
+                    <button class="btn align-bottom btn-lg btn-dark btn-block" id="order-cart" type="submit">Отправить</button>
                 </form>
             </div>
         </div>

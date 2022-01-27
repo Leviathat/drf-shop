@@ -4028,8 +4028,10 @@ textarea.form-control-lg {
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: flex;
+  width: 100%;
+  z-index: 2;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;

@@ -4,12 +4,12 @@ function render_cart(obj) {
         <td> - ${obj.name}</td>
         <td class="text-center">${obj.type}</td>
         <td class="text-center"><nobr>₸ ${obj.price}</nobr></td>
-        <td class="text-right"><button onclick="remove_from_cart(${obj.id})" class="add-to-cart btn btn-sm btn-outline-dark mt-auto">Убрать</button></td>
+        <td class="text-right"><button onclick="remove_from_cart(${obj.id})" class="add-to-cart btn btn-sm btn-outline-dark mt-auto"><i class="fas fa-trash"></i></button></td>
         </tr>
     `);
 }
 
-function test() {
+function order() {
     fetch('http://127.0.0.1:8000/test/', {
         method: 'POST',
         headers: {

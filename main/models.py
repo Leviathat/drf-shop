@@ -1,9 +1,7 @@
-from django.db import models
 from django.conf import settings
 import random
 from django.db import models
-from django.contrib.auth.models import User
-from datetime import datetime, timezone
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Product(models.Model):
@@ -19,12 +17,12 @@ class Product(models.Model):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, verbose_name="Покупатель", on_delete=models.CASCADE)
     name = models.CharField(max_length=255, null=True, verbose_name="Имя покупателя")
     surname = models.CharField(max_length=255, null=True, verbose_name="Фамилия покупателя")
+    number = PhoneNumberField(unique=True, default=None)
 
     def __str__(self):
-        return f'{self.surname} {self.name}'
+        return f'{self.surname} {self.name}, Номер: {self.number}'
 
 
 class Cart(models.Model):
@@ -32,7 +30,7 @@ class Cart(models.Model):
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
-    products = models.ForeignKey(Product, default=None, blank=True, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, blank=True)
 
     def __str__(self):
         return str(self.customer)

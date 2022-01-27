@@ -30,24 +30,21 @@ function render(obj) {
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">${obj.name}</h5>
                                     <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                                   
+                                    <span class="text-muted">₸ ${obj.price} </span>
+                                    <div class="card-footer mt-2 px-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><button onclick="add_to_cart(${obj.id})" id="${obj.id}" class="add-to-cart btn btn-outline-dark"> Add</button></div>
                                     </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted">$ ${obj.price} </span>
                                 </div>
                                 <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><button onclick="add_to_cart(${obj.id})" id="${obj.id}" class="add-to-cart btn btn-outline-dark mt-auto"> Add</button></div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
     `);
     if (cart.hasOwnProperty(obj.id.toString())) {
-	    let product_container = document.getElementById(obj.id.toString());
-		product_container.innerHTML = "Remove";
-		product_container.className = "add-to-cart btn btn-outline-danger mt-auto";
+        let product_container = document.getElementById(obj.id.toString());
+        product_container.innerHTML = "Remove";
+        product_container.className = "add-to-cart btn btn-outline-danger mt-auto";
     }
 }
