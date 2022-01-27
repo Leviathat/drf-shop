@@ -1,6 +1,0 @@
-# Environment
-venv
-media
-static/mp3/
-# DB
-./db.sqlite3
