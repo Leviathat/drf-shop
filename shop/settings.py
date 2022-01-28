@@ -12,8 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@q16lh)12-zo0x=(4!$7-o2=m__&yjx0*a)zoyui=a7iul3s6w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
+DEBUG = False
 ALLOWED_HOSTS = ['dafoe.herokuapp.com']
 
 
@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'db51d85glk6up',
         'HOST': 'ec2-54-74-60-70.eu-west-1.compute.amazonaws.com',
         'PORT': 5432,
