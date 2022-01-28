@@ -23,7 +23,6 @@ function render(obj) {
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="${obj.image}" width="100px" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
