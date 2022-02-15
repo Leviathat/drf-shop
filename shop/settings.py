@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-@q16lh)12-zo0x=(4!$7-o2=m__&yjx0*a)zoyui=a7iul3s6w
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ['dafoe.herokuapp.com']
+ALLOWED_HOSTS = ['dafoe.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -73,7 +73,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'db51d85glk6up',
-        'HOST': 'ec2-54-74-60-70.eu-west-1.compute.amazonaws.com',
+        'HOST': 'ec2-52-208-145-55.eu-west-1.compute.amazonaws.com',
         'PORT': 5432,
         'USER': 'ywafneqxcenwwg',
         'PASSWORD': 'ead3ead7adbc6452caeb99bd0a83e16b1e6e5558145b797fe9b3bfca11c42332'
