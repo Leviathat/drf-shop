@@ -35,3 +35,4 @@ def get_cookie_cart(request):
     return response
 
 
+# Ебать конечно
